@@ -59,7 +59,7 @@ const routes = [
         component: Typography
       },
       {
-        path: "DetalleEmisora",
+        path: "DetalleEmisora/:id",
         name: "DetalleEmisora",
         component: DetalleEmisora
       },
@@ -83,6 +83,8 @@ const routes = [
         name: "Testdash",
         component: Testdash
       },
+
+
       
       
     ]

@@ -15,6 +15,9 @@
         </div>
         <a class="navbar-brand" href="#pablo">{{routeName}}</a>
       </div>
+
+      
+
       <button class="navbar-toggler" type="button"
               @click="toggleMenu"
               data-toggle="collapse"
@@ -85,7 +88,7 @@
                 </p>
               </a>
               <li class="nav-link">
-                <a href="#" class="nav-item dropdown-item">Profile</a>
+                <a href="#" class="nav-item dropdown-item">Perfil</a>
               </li>
               <li class="nav-link">
                 <a href="#" class="nav-item dropdown-item">Settings</a>

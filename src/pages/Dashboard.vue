@@ -1,6 +1,8 @@
 <template>
   <div>
 
+  <!-- !!! cosas por hacer: una radio digital / Sitios por inspeccionar que sea urgente o en realizacion  / Anuncios Importantes del jefe / decorar la la grafica con estaciones de radio!!! -->
+
     <div class="row">
       <div class="col-12">
         <card type="chart">
