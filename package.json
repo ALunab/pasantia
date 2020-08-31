@@ -7,13 +7,19 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "e2e": "node test/e2e/runner.js",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve --open",
-    "lint-fix": "vue-cli-service lint --fix"
+    "e2e": "node test/e2e/runner.js",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "lint-fix": "vue-cli-service lint --fix",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
   },
+  "main": "background.js",
   "dependencies": {
     "@fullcalendar/daygrid": "^5.2.0",
+    "@fullcalendar/interaction": "^5.3.0",
     "@fullcalendar/vue": "^5.2.0",
     "chart.js": "^2.9.3",
     "register-service-worker": "^1.7.1",
@@ -30,8 +36,11 @@
     "@vue/cli-plugin-eslint": "^4.4.6",
     "@vue/cli-plugin-pwa": "^4.4.6",
     "@vue/cli-service": "^4.4.6",
+    "electron": "^9.0.0",
+    "electron-devtools-installer": "^3.1.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
     "vue-cli-plugin-i18n": "^1.0.1",
     "vue-template-compiler": "^2.6.11"
   },

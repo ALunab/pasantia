@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <div class="col-md-8">
-      <edit-profile-form :model="data">
+      <edit-profile-form :model="emisora">
       </edit-profile-form>
     </div>
     <div class="col-md-4">
   
-      <user-card :user="user2"></user-card>
+      <user-card :user="user+$route.params.id"></user-card>
     </div>
   </div>
 </template>
@@ -21,7 +21,10 @@
     },
     data() {
       return {
-        data: {},
+        emisora: {},
+        user: {},
+
+
         model1: {
           company: 'Adulto Joven',
           email: 'emisora@email.com',
@@ -111,7 +114,7 @@
       },
     },
     mounted() {
-      this.data = this.getEmisora(this.$route.params.id),
+      this.emisora = this.getEmisora(this.$route.params.id)
       this.user = this.getUser(this.$route.params.id)
     }
   }

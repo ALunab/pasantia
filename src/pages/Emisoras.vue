@@ -28,7 +28,7 @@
                 <th>empresa</th>
                 <th>ubicacion</th>
                 <th>frecuencia</th>
-                <th>telefono</th>
+                <th>teléfono</th>
                 <th>Persona de Contacto</th>
                 <th>fecha de inspeccion</th>
                 <th>Estatus</th>

@@ -126,6 +126,11 @@
         </card>
       </div>
     </div>
+    Calendario
+
+   <!--  <full-calendar ></full-calendar> -->
+   <FullCalendar :options="calendarOptions" />
+   
   </div>
 </template>
 <script>
@@ -136,18 +141,27 @@
   import UserTable from './Dashboard/UserTable';
   import config from '@/config';
 
+  import FullCalendar from '@fullcalendar/vue'
+  import dayGridPlugin from '@fullcalendar/daygrid'
+  import interactionPlugin from '@fullcalendar/interaction'
+
   export default {
     components: {
       LineChart,
       BarChart,
       TaskList,
-      UserTable
+      UserTable,
+      FullCalendar 
     },
     data() {
       return {
+        calendarOptions: {
+          plugins: [ dayGridPlugin, interactionPlugin ],
+          initialView: 'dayGridMonth'
+        },
         bigLineChart: {
           allData: [
-            [120, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
+            [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
             [88.1, 97.7, 105, 99.9, 95, 105, 90, 100, 103.3, 95, 106.6, 107.9],
             [60, 80, 65, 130, 80, 105, 90, 130, 70, 115, 60, 130]
           ],

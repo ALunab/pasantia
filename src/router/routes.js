@@ -14,7 +14,9 @@ const DetalleEmisora = () => import(/* webpackChunkName: "DetalleEmisora" */ "@/
 const DetalleEmisora2 = () => import(/* webpackChunkName: "DetalleEmisora2" */ "@/pages/DetalleEmisora2.vue");
 const Inspeccion = () => import(/* webpackChunkName: "Inspeccion" */ "@/pages/Inspeccion.vue");
 const Testdash = () => import(/* webpackChunkName: "Testdash" */ "@/pages/Testdash.vue");
-const Leyes = () => import(/* webpackChunkName: "Leyes" */ "@/pages/Leyes.vue");
+const Leyes = () => import(/* webpackChunkName: "Leyes" */ "@/pages/carpetaInspeccion/Leyes.vue");
+const Manuales = () => import(/* webpackChunkName: "Leyes" */ "@/pages/carpetaInspeccion/Manuales.vue");
+const Equipos = () => import(/* webpackChunkName: "Equipos" */ "@/pages/carpetaInspeccion/Equipos.vue");
 
 
 const routes = [
@@ -31,7 +33,22 @@ const routes = [
       {
         path: "Leyes",
         name: "Leyes",
-        component: Leyes
+        component: () => import(/* webpackChunkName: "Leyes" */ "@/pages/carpetaInspeccion/Leyes.vue")
+      }, 
+      {
+        path: "PasosInspeccion",
+        name: "PasosInspeccion",
+        component: () => import(/* webpackChunkName: "Leyes" */ "@/pages/carpetaInspeccion/PasosInspeccion")
+      },
+      {
+        path: "Manuales",
+        name: "Manuales",
+        component: Manuales
+      },
+      {
+        path: "Equipos",
+        name: "Equipos",
+        component: Equipos
       },
       {
         path: "profile",

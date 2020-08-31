@@ -55,9 +55,6 @@
 
 
 
-
-
-
       <!-- spam azul -->
     
     
@@ -74,21 +71,21 @@
           </base-alert>
         </router-link>
         <!--  Nota de Inspeccion -->
-        <router-link to="leyes" @click="consola">
+        <router-link to="PasosInspeccion" @click="consola">
           <base-alert type="info" with-icon>
             <span data-notify="icon" class="tim-icons icon-bullet-list-67"></span>
             <span data-notify="message">Pasos para una buena inspeccion</span>
           </base-alert>
         </router-link>
         <!--  Manuales -->
-        <router-link to="leyes" @click="consola">
+        <router-link to="Manuales" @click="consola">
           <base-alert type="info" with-icon>
             <span data-notify="icon" class="tim-icons icon-book-bookmark"></span>
             <span data-notify="message"> Manuales de la Gerencia </span>
           </base-alert>
         </router-link>
         <!--  Nota de equipos -->
-        <router-link to="leyes" @click="consola">
+        <router-link to="Equipos" @click="consola">
           <base-alert type="info" with-icon>
             <span data-notify="icon" class="tim-icons icon-controller"></span>
             <span data-notify="message"> Equipos </span>

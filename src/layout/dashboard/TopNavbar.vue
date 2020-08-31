@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-absolute"
-       :class="{'bg-white': showMenu, 'navbar-transparent': !showMenu}">
+  <nav class="navbar navbar-expand-lg fixed-top"
+       :class="{'bg-white': showMenu, '': !showMenu}">
     <div class="container-fluid">
       <div class="navbar-wrapper">
         <div class="navbar-toggle d-inline" :class="{toggled: $sidebar.showSidebar}">
@@ -32,14 +32,31 @@
       <collapse-transition>
         <div class="collapse navbar-collapse show" v-show="showMenu">
           <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
-            <div class="search-bar input-group" @click="searchModalVisible = true">
+            <!-- <div class="search-bar input-group" @click="searchModalVisible = true">  //esto es del serch-->
               <!-- <input type="text" class="form-control" placeholder="Search...">
               <div class="input-group-addon"><i class="tim-icons icon-zoom-split"></i></div> -->
-              <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
-                <i class="tim-icons icon-zoom-split"></i>
-              </button>
+              
+              <li>
+                <button  type="button" class="btn btn-primary"
+                      @click="$router.go(-1)">
+                    <i class="tim-icons icon-double-left"></i>
+                </button >
+                </li>
+                <li>
+                <button  type="button" class="btn btn-success"
+                      @click="$router.go(1)">
+                    <i class="tim-icons icon-double-right"></i>
+                </button>
+
+              </li>
+
+              <!-- <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
+                <i class="tim-icons icon-zoom-split"></i> //esto tambien es del serch
+              </button> -->
+
+
               <!-- You can choose types of search input -->
-            </div>
+            <!-- </div> -->
             <modal :show.sync="searchModalVisible"
                    class="modal-search"
                    id="searchModal"
@@ -47,6 +64,7 @@
                    :show-close="true">
               <input slot="header" v-model="searchQuery" type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
             </modal>
+            
             <base-dropdown tag="li"
                            :menu-on-right="!$rtl.isRTL"
                            title-tag="a" class="nav-item">
@@ -80,6 +98,7 @@
                            menu-classes="dropdown-navbar">
               <a slot="title" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true">
                 <div class="photo">
+
                   <img src="img/anime3.png">
                 </div>
                 <b class="caret d-none d-lg-block d-xl-block"></b>
