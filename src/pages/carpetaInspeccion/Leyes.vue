@@ -41,7 +41,7 @@
 
 	<br>
 
-	<div id="horita" class="mt-3 mb-4 ml-1">
+	<div  class="mt-3 mb-4 ml-1">
 
 		<card> 
 		<h1>Resorteme</h1>
@@ -52,7 +52,7 @@
 		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-		<p class="otra"></p>
+		<p></p>
 		</card>
 
 	</div>
@@ -72,9 +72,6 @@ pre {
   text-justify: inter-word !important;
   
 }
-
-#horita p{} 
-#horita p.otra{}
 
 </style>
 
