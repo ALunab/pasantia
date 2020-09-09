@@ -21,6 +21,7 @@
     "@fullcalendar/daygrid": "^5.2.0",
     "@fullcalendar/interaction": "^5.3.0",
     "@fullcalendar/vue": "^5.2.0",
+    "boostrap": "^2.0.0",
     "chart.js": "^2.9.3",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",

@@ -1,5 +1,78 @@
 <template>
 <div> <!-- hacer que el cuadro sea del tamaño de la pantalla -->
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Constitucion 
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <div class="mt-3 mb-4 ml-1"> <!-- hacer un margen -->
+
+		
+		<h3 > Constitucion PDF </h3>
+	<div  class="mt-3 mb-4 ml-1">
+
+		<card type="tasks" class="table-full-width table-responsive"> 
+		 <template>
+                                    <div>
+                                        Número de páginas: {{ numPages }}
+                                          <pdf
+                                              v-for="i in numPages"
+                                              :key="i"
+                                              :src="src"
+                                              :page="i"
+                                              >
+                                             
+                                          </pdf>
+                                    </div>
+                                  </template>
+		</card>
+
+	</div>
+
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+	
+
 	<div class="mt-3 mb-4 ml-1"> <!-- hacer un margen -->
 
 		
@@ -40,29 +113,62 @@
 	</div>
 
 	<br>
+<!-- 
+			<div class="mt-3 mb-4 ml-1"> 
 
-	<div  class="mt-3 mb-4 ml-1">
+				
+				<h3 > Constitucion PDF </h3>
+				<div  class="mt-3 mb-4 ml-1">
 
-		<card> 
-		<h1>Resorteme</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<card type="tasks" class="table-full-width table-responsive"> 
+					 <template>
+			                                    <div>
+			                                        Número de páginas: {{ numPages }}
+			                                          <pdf
+			                                              v-for="i in numPages"
+			                                              :key="i"
+			                                              :src="src"
+			                                              :page="i"
+			                                              >
+			                                             
+			                                          </pdf>
+			                                    </div>
+			                                  </template>
+					</card>
 
-		<p></p>
-		</card>
+				</div>
 
+			</div> -->
 	</div>
 
-	</div>
 </div>
 </template>
 
-<script type="text/javascript">
+<script>
 
+import pdf from 'vue-pdf'
+var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
+var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
+
+
+  
+  export default {
+    components: {
+        pdf
+    },
+    data () {
+        return {
+            src: pdfDocument,
+            numPages: 0
+        }
+    },
+    mounted() {
+       this.src.promise.then(pdf => {
+            this.numPages = pdf.numPages;
+        });
+    }
+  }
+  
 
 </script>
 
@@ -70,6 +176,7 @@
 pre {
   text-align: justify !important;
   text-justify: inter-word !important;
+  font-family: 'Poppins', sans-serif;
   
 }
 

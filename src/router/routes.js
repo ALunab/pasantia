@@ -7,6 +7,7 @@ const Dashboard = () => import(/* webpackChunkName: "dashboard" */"@/pages/Dashb
 const Profile = () => import(/* webpackChunkName: "common" */ "@/pages/Profile.vue");
 const Notifications = () => import(/* webpackChunkName: "common" */"@/pages/Notifications.vue");
 const Icons = () => import(/* webpackChunkName: "common" */ "@/pages/Icons.vue");
+const Landing = () => import(/* webpackChunkName: "Landing" */ "@/pages/Landing.vue");
 const Maps = () => import(/* webpackChunkName: "common" */ "@/pages/Maps.vue");
 const Typography = () => import(/* webpackChunkName: "common" */ "@/pages/Typography.vue");
 const Emisoras = () => import(/* webpackChunkName: "common" */ "@/pages/Emisoras.vue");
@@ -99,6 +100,11 @@ const routes = [
         path: "Testdash",
         name: "Testdash",
         component: Testdash
+      },
+      {
+        path: "Landing",
+        name: "Landing",
+        component: Landing
       },
 
 
