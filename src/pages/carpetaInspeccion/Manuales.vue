@@ -1,5 +1,5 @@
 <template> 
-  <div class="container">
+  <div class="container" id="manuales">
 
       
     <div class="">
@@ -51,19 +51,7 @@
                           <div class="modal fade bd-example-modal-lg" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                               <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                  <template>
-                                    <div>
-                                        Número de páginas: {{ numPages }}
-                                          <pdf
-                                              v-for="i in numPages"
-                                              :key="i"
-                                              :src="src"
-                                              :page="i"
-                                              >
-                                             
-                                          </pdf>
-                                    </div>
-                                  </template>
+                                  <mostrar-pdf src-pdf="/pdf/procedimientoinspeccion.pdf"/>
                                 </div>
                               </div>
                             </div>
@@ -99,23 +87,11 @@
                   <div class="card card-body">
                       <div class="row">
                       <div class="col-6">
-                          <button class="btn btn-info" type="button" data-toggle="modal" data-target=".bd-example-modal-lg"> Visualizar PDF</button>
-                          <div class="modal fade bd-example-modal-lg" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <button class="btn btn-info" type="button" data-toggle="modal" data-target=".bd-example-modal-lg2"> Visualizar PDF</button>
+                          <div class="modal fade bd-example-modal-lg2" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                               <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                  <template>
-                                    <div>
-                                        Número de páginas: {{ numPages }}
-                                          <pdf
-                                              v-for="i in numPages"
-                                              :key="i"
-                                              :src="src"
-                                              :page="i"
-                                              >
-                                             
-                                          </pdf>
-                                    </div>
-                                  </template>
+                                  <mostrar-pdf src-pdf="/pdf/procedimientoinspeccion.pdf"/>
                                 </div>
                               </div>
                             </div>
@@ -155,29 +131,17 @@
                   <div class="card card-body">
                       <div class="row">
                       <div class="col-6">
-                          <button class="btn btn-info" type="button" data-toggle="modal" data-target=".bd-example-modal-lg"> Visualizar PDF</button>
-                          <div class="modal fade bd-example-modal-lg" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <button class="btn btn-info" type="button" data-toggle="modal" data-target=".bd-example-modal-lg3"> Visualizar PDF</button>
+                          <div class="modal fade bd-example-modal-lg3" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                               <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                  <template>
-                                    <div>
-                                        Número de páginas: {{ numPages }}
-                                          <pdf
-                                              v-for="i in numPages"
-                                              :key="i"
-                                              :src="src"
-                                              :page="i"
-                                              >
-                                             
-                                          </pdf>
-                                    </div>
-                                  </template>
+                                  <mostrar-pdf src-pdf="/pdf/procedimientoinspeccion.pdf"/>
                                 </div>
                               </div>
                             </div>
                       </div>
                       <div class="col-6">
-                         <a href="/pdf/procedimientoinspeccion.pdf" download="Reporte2Mayo2010"> <button class="btn btn-warning">Descargar PDF</button> </a>
+                         <a href="/pdf/titulosyObjetivosLuna.pdf" download="Reporte2Mayo2010"> <button class="btn btn-warning">Descargar PDF</button> </a>
                       </div>
                     </div>
                   </div>
@@ -208,23 +172,11 @@
                   <div class="card card-body">
                       <div class="row">
                       <div class="col-6">
-                          <button class="btn btn-info" type="button" data-toggle="modal" data-target=".bd-example-modal-lg"> Visualizar PDF</button>
-                          <div class="modal fade bd-example-modal-lg" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <button class="btn btn-info" type="button" data-toggle="modal" data-target=".bd-example-modal-lg4"> Visualizar PDF</button>
+                          <div class="modal fade bd-example-modal-lg4" tabindex="100" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                               <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                  <template>
-                                    <div>
-                                        Número de páginas: {{ numPages }}
-                                          <pdf
-                                              v-for="i in numPages"
-                                              :key="i"
-                                              :src="src"
-                                              :page="i"
-                                              >
-                                             
-                                          </pdf>
-                                    </div>
-                                  </template>
+                                  <mostrar-pdf src-pdf="/pdf/titulosyObjetivosLuna.pdf"/>
                                 </div>
                               </div>
                             </div>
@@ -247,27 +199,30 @@
 
 <script>
 
-import pdf from 'vue-pdf'
-var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
-var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
-
-
-  
+import MostrarPdf from './componentes/MostrarPDF'  
   export default {
     components: {
-        pdf
+        MostrarPdf
     },
-    data () {
+    
+    /*data () {
         return {
-            src: pdfDocument,
+            //src: pdfDocument,
             numPages: 0
         }
     },
+    computed: {
+      src() {
+        if (this.srcPdf.length > 0) 
+          return pdf.createLoadingTask(this.srcPdf)
+      }
+    },
     mounted() {
        this.src.promise.then(pdf => {
+          console.log('pdf', pdf)
             this.numPages = pdf.numPages;
         });
-    }
+    }*/
   }
   
 
@@ -280,7 +235,7 @@ var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
     border: 1px solid #373860;
-    /*border-left-width: .22rem;*/
+    border-left-width: .22rem;
     border-radius: .70rem;
    /* border-left-color: #3faf7c;*/
   }
@@ -292,5 +247,8 @@ var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
 
   }
 
-
+  #manuales .modal.show .modal-dialog {
+    position: relative;
+    top: -1000px;
+  }
 </style>

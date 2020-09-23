@@ -11,7 +11,7 @@
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <div class="mt-3 mb-4 ml-1"> <!-- hacer un margen -->
 
@@ -19,20 +19,11 @@
 		<h3 > Constitucion PDF </h3>
 	<div  class="mt-3 mb-4 ml-1">
 
-		<card type="tasks" class="table-full-width table-responsive"> 
-		 <template>
-                                    <div>
-                                        Número de páginas: {{ numPages }}
-                                          <pdf
-                                              v-for="i in numPages"
-                                              :key="i"
-                                              :src="src"
-                                              :page="i"
-                                              >
-                                             
-                                          </pdf>
-                                    </div>
-                                  </template>
+		<card type="tasks" class="table-full-width table-responsive " style="
+    overflow-x: hidden; "> 
+		 
+    	 <mostrar-pdf src-pdf="/pdf/procedimientoinspeccion.pdf"/>
+
 		</card>
 
 	</div>
@@ -138,6 +129,8 @@
 
 				</div>
 
+
+
 			</div> -->
 	</div>
 
@@ -146,6 +139,8 @@
 
 <script>
 
+import MostrarPdf from './componentes/MostrarPDF'  
+    
 import pdf from 'vue-pdf'
 var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
 var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
@@ -154,7 +149,7 @@ var pdfDocument = pdf.createLoadingTask('/pdf/procedimientoinspeccion.pdf');
   
   export default {
     components: {
-        pdf
+        MostrarPdf
     },
     data () {
         return {

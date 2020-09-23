@@ -23,8 +23,19 @@ const Equipos = () => import(/* webpackChunkName: "Equipos" */ "@/pages/carpetaI
 const routes = [
   {
     path: "/",
+    component: () => import("@/layout/starter/Content.vue"),
+    children: [
+      {
+        path: "Landing",
+        name: "Landing",
+        component: Landing
+      }
+      ]
+  },
+  {
+    path: "/",
     component: DashboardLayout,
-    redirect: "/dashboard",
+    redirect: "/Landing",
     children: [
       {
         path: "dashboard",
@@ -100,11 +111,6 @@ const routes = [
         path: "Testdash",
         name: "Testdash",
         component: Testdash
-      },
-      {
-        path: "Landing",
-        name: "Landing",
-        component: Landing
       },
 
 
